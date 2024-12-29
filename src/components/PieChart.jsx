@@ -15,7 +15,8 @@ const MyPieChart = ({ data }) => {
                     data={data}
                     dataKey="value"
                     nameKey="name"
-                    outerRadius={"100"}
+                    outerRadius={100}
+                    innerRadius={50}
                     fill="#8884d8"
                     label={(entry) => `${entry.name}: ${(entry.value / 1000000).toFixed(2)}M`}
                 >
