@@ -29,7 +29,7 @@ export const AppContextProvider = ({ children }) => {
         totalDeaths: 0,
         totalRecovered: 0,
     });
-    const [countries, setCountries] = useState([]);
+    const [countries, setCountries] = useState([country]);
 
     useEffect(() => {
         getCovidData();
