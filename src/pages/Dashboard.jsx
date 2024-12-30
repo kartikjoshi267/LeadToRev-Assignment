@@ -34,17 +34,17 @@ const Dashboard = () => {
                 <StatisticsCard
                     title="Total Cases"
                     cases={totals.totalCases}
-                    color={`bg-[${COLORS[0].color}]`}
+                    color={COLORS[0].color}
                 />
                 <StatisticsCard
                     title="Total Recovered"
                     cases={totals.totalRecovered}
-                    color={`bg-[${COLORS[1].color}]`}
+                    color={COLORS[1].color}
                 />
                 <StatisticsCard
                     title="Total Deaths"
                     cases={totals.totalDeaths}
-                    color={`bg-[${COLORS[2].color}]`}
+                    color={COLORS[2].color}
                 />
             </div>
             <div className="flex 2xl:justify-between w-full gap-3 items-center 2xl:flex-row flex-col justify-center">
