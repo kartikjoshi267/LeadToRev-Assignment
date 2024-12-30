@@ -48,17 +48,7 @@ export const AppContextProvider = ({ children }) => {
         getCountries();
     }, []);
 
-    useEffect(() => {
-        const { totalCases, totalDeaths, totalRecovered } =
-            totalCasesCalculator(covidData);
-
-        setTotals({
-            totalCases,
-            totalDeaths,
-            totalRecovered,
-        });
-    }, [covidData]);
-
+    
     useEffect(() => {
         if (dates.startDate !== dates.endDate) {
             setCovidData(
@@ -69,7 +59,18 @@ export const AppContextProvider = ({ children }) => {
                 )
             );
         }
-    }, [dates.startDate, dates.endDate]);
+    }, [dates.startDate, dates.endDate, covidDataFetched]);
+
+    useEffect(() => {
+        const { totalCases, totalDeaths, totalRecovered } =
+            totalCasesCalculator(covidData);
+
+        setTotals({
+            totalCases,
+            totalDeaths,
+            totalRecovered,
+        });
+    }, [covidData]);
 
     const getCovidData = async () => {
         try {
