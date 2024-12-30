@@ -1,12 +1,20 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import totalCasesCalculator from "../utils/totalCasesCalculator";
+import axiosRetry from "axios-retry";
 
 const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
     const COVID_API_BASE_URL = `https://disease.sh/v3/covid-19/historical/`;
     const COUNTRIES_API_BASE_URL = `https://restcountries.com/v3.1/all`;
+    axiosRetry(axios, {
+        retries: 3,
+        retryDelay: (retryCount) => {
+            return retryCount * 1000;
+        }
+    });
+    
     const date = new Date();
     const [covidData, setCovidData] = useState([
         {

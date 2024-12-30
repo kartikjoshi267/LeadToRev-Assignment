@@ -4,6 +4,7 @@ import MyPieChart from "../components/PieChart";
 import SearchBox from "../components/SearchBox";
 import StatisticsCard from "../components/StatisticsCard";
 import { useAppContext } from "../context/appContext";
+import { COLORS } from "../utils/colors";
 
 const Dashboard = () => {
     const {
@@ -33,17 +34,17 @@ const Dashboard = () => {
                 <StatisticsCard
                     title="Total Cases"
                     cases={totals.totalCases}
-                    color="bg-[#9CA8FF]"
+                    color={`bg-[${COLORS[0].color}]`}
                 />
                 <StatisticsCard
                     title="Total Recovered"
                     cases={totals.totalRecovered}
-                    color="bg-[#47D928]"
+                    color={`bg-[${COLORS[1].color}]`}
                 />
                 <StatisticsCard
                     title="Total Deaths"
                     cases={totals.totalDeaths}
-                    color="bg-[#FF4D57]"
+                    color={`bg-[${COLORS[2].color}]`}
                 />
             </div>
             <div className="flex 2xl:justify-between w-full gap-3 items-center 2xl:flex-row flex-col justify-center">

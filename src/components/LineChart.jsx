@@ -1,4 +1,5 @@
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { COLORS } from "../utils/colors";
 
 const MyLineChart = ({
   data
@@ -22,9 +23,9 @@ const MyLineChart = ({
               />
               <Legend />
               {/* show number of cases in millions with M in the end */}
-              <Line type="monotone" strokeWidth={3} dot={false} dataKey="cases" stroke="#9CA8FF" />
-              <Line type="monotone" strokeWidth={3} dot={false} dataKey="recovered" stroke="#47D928" />
-              <Line type="monotone" strokeWidth={3} dot={false} dataKey="deaths" stroke="#FF4D57" />
+              <Line type="monotone" strokeWidth={3} dot={false} dataKey="cases" stroke={COLORS[0].color} />
+              <Line type="monotone" strokeWidth={3} dot={false} dataKey="recovered" stroke={COLORS[1].color} />
+              <Line type="monotone" strokeWidth={3} dot={false} dataKey="deaths" stroke={COLORS[2].color} />
           </LineChart>
         </ResponsiveContainer>
       </div>
