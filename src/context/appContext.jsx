@@ -27,6 +27,7 @@ export const AppContextProvider = ({ children }) => {
                 .substring(2)}`,
         },
     ]);
+    const [covidDataFetched, setCovidDataFetched] = useState(covidData);
     const [country, setCountry] = useState("United States");
     const [dates, setDates] = useState({
         startDate: new Date().toISOString().substring(0, 10),
@@ -61,7 +62,7 @@ export const AppContextProvider = ({ children }) => {
     useEffect(() => {
         if (dates.startDate !== dates.endDate) {
             setCovidData(
-                covidData.filter(
+                covidDataFetched.filter(
                     (data) =>
                         new Date(data.date) >= new Date(dates.startDate) &&
                         new Date(data.date) <= new Date(dates.endDate)
@@ -84,7 +85,7 @@ export const AppContextProvider = ({ children }) => {
                 deaths: deaths[date],
                 recovered: recovered[date],
             }));
-
+            setCovidDataFetched(covidDataByDates);
             setCovidData(covidDataByDates);
         } catch (error) {
             console.log(error);
